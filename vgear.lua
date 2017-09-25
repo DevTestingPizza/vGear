@@ -12,9 +12,11 @@ local EnableManualButton = true         -- Should players be able to use the Man
 local ManualLoadoutButton = 168         -- The button to be pressed to receive the loadout (default: 168 (F7))
 local ClearPlayerClothes = true         -- Should the player's clothes be cleaned? (remove blood etc.) (default: true)
 local HealPlayer = true                 -- Should the player be healed (max health) (default: true)
-local GiveMaxArmor = true              -- Should the player receive full body armor? (default: true)
+local GiveMaxArmor = true               -- Should the player receive full body armor? (default: true)
 local ReceivedLoadoutMessage = '^1Gear equipped, enjoy!' -- the message the player receives after getting the gear.
-
+local LoadoutCommand = "loadout"        -- The command that equips the loadout. (Default: "loadout")
+local EnableCommand = false             -- Should the command be enabled? (true = yes, false = no) (default: false)
+-- note for the LoadoutCommand: don't add a / because that's already added in the code!
 
 -- https://wiki.fivem.net/wiki/Weapons
 -- {weaponHash, amountOfAmmoToGive} Too much ammo might crash the game, be careful!
@@ -48,6 +50,12 @@ AddEventHandler("playerSpawned", function()
         GiveLoadout()
     end
 end)
+
+if EnableCommand then
+    RegisterCommand(LoadoutCommand, function()
+        GiveLoadout()
+    end, false)
+end
 
 if EnableManualButton then
     Citizen.CreateThread(function()
