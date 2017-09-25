@@ -12,7 +12,7 @@ local EnableManualButton = true         -- Should players be able to use the Man
 local ManualLoadoutButton = 168         -- The button to be pressed to receive the loadout (default: 168 (F7))
 local ClearPlayerClothes = true         -- Should the player's clothes be cleaned? (remove blood etc.) (default: true)
 local HealPlayer = true                 -- Should the player be healed (max health) (default: true)
-local GiveMaxArmour = true              -- Should the player receive full body armor? (default: true)
+local GiveMaxArmor = true              -- Should the player receive full body armor? (default: true)
 local ReceivedLoadoutMessage = '^1Gear equipped, enjoy!' -- the message the player receives after getting the gear.
 
 
@@ -71,8 +71,8 @@ function GiveLoadout()
     if ClearPlayerClothes then
         ClearPedBloodDamage(ped)
     end
-    if GiveMaxArmour then
-        SetPedArmour(ped, 100)
+    if GiveMaxArmor then
+        SetPedArmor(ped, 100)
     end
     if HealPlayer then
         SetEntityHealth(ped, 200)
