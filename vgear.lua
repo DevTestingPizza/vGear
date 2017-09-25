@@ -3,7 +3,7 @@
 -- Description: Gear up whenever you (re)spawn or press a button (configurable).
 -- License: GNU Affero General Public License v3.0
 -- Author: Vespura
-
+-- GitHub Repo: https://github.com/TomGrobbe/vGear
 
 --------------------------- LOCAL VARIABLES --------------------------------
 
